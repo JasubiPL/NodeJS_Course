@@ -1,12 +1,23 @@
-console.clear();
-console.log(
-  `=====================
-Tabla del ${ base }
-======================`
-)
+const fs = require("fs")
 
-const base = 3;
+console.clear();
+
+const base = 5;
+let salida = "";
+const header = `
+======================
+    Tabla del ${ base }
+======================
+`
+
 
 for(let i = 1; i <= 10 ; i++){
-  console.log(`${ base } x ${i} = ${base * i}`);
+  salida += `${ base } x ${i} = ${base * i}\n`;
+  console.log( salida )
 }
+
+fs.writeFile(`tabla-${ base }.txt`, header + salida, ( err ) =>{
+  if( err ) throw err;
+
+  console.log( ` Tabla del ${ base } creada` )
+})
