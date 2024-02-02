@@ -1,6 +1,7 @@
 const fs = require("fs")
+const colors = require("colors")
 
-const crearArchivoTabla = async ( base = 5, list ) =>{
+const crearArchivoTabla = async ( base = 5, list, hasta ) =>{
   try{
     let salida = "";
     const header = `
@@ -9,11 +10,14 @@ const crearArchivoTabla = async ( base = 5, list ) =>{
 ======================
   `
   
-    for(let i = 1; i <= 10 ; i++){
-      salida += `${ base } x ${i} = ${base * i}\n`;
+    for(let i = 1; i <= hasta ; i++){
+      salida += `${ base } ${'x'.green} ${i} ${'='.green} ${base * i}\n`;
     }
     
     if(list){
+      console.log('======================')
+      console.log(`Tabla del ${ base }`)
+      console.log('======================')
       console.log(salida)
     }
     
