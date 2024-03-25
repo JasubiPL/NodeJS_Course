@@ -34,18 +34,18 @@ const mostrarMenu = async () =>{
 }
 
 const pausa = async () =>{
-return new Promise( resolve =>{
-  const readline = require('readline').createInterface({
-    input:process.stdin,
-    output:process.stdout
-  })
+  return new Promise( resolve =>{
+    const readline = readline.createInterface({
+      input:process.stdin,
+      output:process.stdout
+    })
 
-  readline.question(`\nPrecione ${ 'ENTER'.green } para continuar`, action =>{
-    
-    readline.close();
-    resolve()
+    readline.question(`\nPrecione ${ 'ENTER'.green } para continuar`, action =>{
+      
+      readline.close();
+      resolve()
+    })
   })
-})
 
   
 }
